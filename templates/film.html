@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+    {#    ____________________________________________________________________________________________________________________#}
+
+    <div class="movie-background">
+        <div class="movie-brief">
+            <div class="movie-image detail">
+                <img src="/static/{{ film.pic_link }}">
+
+            </div>
+            <div class="movie-info detail">
+                <h1>《{{ film.name }}》</h1><br>
+                <p>语言：&nbsp; &nbsp;{{ film.language }}</p>
+
+                <p>国家：&nbsp; &nbsp;{{ film.country }}</p>
+                <p>上映: &nbsp; &nbsp;&nbsp;{{ film.publish_year }}年</p>
+                <p>类型:
+                    &nbsp;&nbsp;
+                    {% for i in film.types.all %}
+                        <span>{{ i }}</span>
+                    {% endfor %}
+                </p>
+
+                <p>演员表：</p>
+
+                {% for act in film.actor.all|slice:':8' %}
+                    <span class="actor-name">{{ act.name }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        {#    ____________________________________________________________________________________________________________________#}
+
+        <div class="movie-download-link-area">
+
+
+            <div class="movie-story">
+                <h1>剧情介绍</h1>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{ film.intro }}
+                </p>
+            </div>
+            <div class="movie-download-link">
+
+
+                <div class="download-link1">
+                    <h3>下载链接</h3>
+                    {% for key,value in dic.items %}
+                        {% if key %}
+                        <li>
+                            <a href="{{ value }}">&nbsp;{{ key }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="sepa"></div>
+{% endblock %}

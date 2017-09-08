@@ -1,0 +1,93 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影</title>
+    <link rel="stylesheet" href="{% static "css/film.css" %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+</head>
+<body>
+
+{#______________________________________________   header区   __________________________________________________________#}
+
+
+<div class="header">
+    <div class="navbar">
+        <div class="logo"><img src="{% static "pic/logo.jpeg" %}"></div>
+        <div class="nav"><a href="/"><p>首页</p></a></div>
+        <div class="nav"><a href="/film/1"><p>电影</p></a></div>
+        <div class="nav"><a href="/film/1"><p>电视剧</p></a></div>
+    </div>
+    <div class="search">
+        <form method="post" action="{% url 'search' %}">
+            {% csrf_token %}
+            <input type="text" value="找电影，找影人" width="200" height="40"
+                   id="search-box" name="f1" onfocus="javascript:if(this.value=='找电影，找影人')this.value='';">
+        </form>
+        <img src="{% static "pic/button.png" %}" id="search">
+
+    </div>
+</div>
+
+
+<div class="main-content">
+
+    {#__________________________________________   内容填充区   ___________________________________________________________#}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    {#__________________________________________   footer    ___________________________________________________________#}
+
+
+    <div class="sepa"></div>
+
+    <div class="footer">
+        <p>本站内容来源于网络,仅供学习交流，严禁用于商业用途，请于24小时内删除</p>
+    </div>
+
+</div>
+</body>
+
+
+<script>
+    {#        $.ajax({#}
+    {#            url: '/search/',#}
+    {#            type: "POST",#}
+    {#            data: {'keyword':keyword},#}
+    {#            success:function () {#}
+    {#            }#}
+    {#        })#}
+
+
+    $("#search").click(function () {
+        var keyword = $("#search-box").val();
+        location.replace('/search/?key=' + keyword)
+    });
+
+    {#    $("#search-box").keydown(function (e) {#}
+    {#        var keyword = $("#search-box").val();#}
+    {#        if (e.keyCode == 13) {#}
+    {#            location.replace('/search/?key=' + keyword)#}
+    {#        }#}
+    {#    });#}
+
+
+    {#    function fuck() {#}
+    {#        var keyword = $("#search-box").val();#}
+    {#        location.replace('/search/?key=' + keyword);#}
+    {#    }#}
+
+    $('#search-box').onfocus(function () {
+        this.remove(value)
+    })
+
+</script>
+
+
+</html>
