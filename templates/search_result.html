@@ -32,7 +32,7 @@
 
                 <p>演员：
 
-                    {% for act in film.actor.all %}
+                    {% for act in film.actor.all|slice:'6' %}
                         <span class="search-actor-name">{{ act.name }}</span>
                     {% endfor %}
                 </p>
