@@ -76,7 +76,7 @@ def index(request):
     current_page = int(current_page)
     total_count = films.all().count()
     obj = PageHelper(total_count, current_page, "/", 24, ftype, country, year)
-    v = total_count // 20
+    v = (total_count // 20) - 2
     pager = obj.page_str()
     films = films.distinct()[obj.db_start:obj.db_end]
     return render(request, 'index.html', locals())

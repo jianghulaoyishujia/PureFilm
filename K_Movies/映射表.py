@@ -13,13 +13,13 @@ film_type_table = {
     'crime': 11,
     'disaster': 33,
     'dance': 13,
-    'all': 21,
+    'type_all': 21,
 
 }
 
 
 film_country_table = {
-    'all': 0,
+    'country_all': 0,
     'China': 6,
     'USA': 1,
     'France': 51,
