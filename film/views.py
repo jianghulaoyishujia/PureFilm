@@ -59,17 +59,6 @@ def index(request):
             films2 = films1.all()
 
 
-
-
-
-
-
-
-
-
-
-
-
         print('type'+ftype)
         print('country'+country)
         print('year' + year)
