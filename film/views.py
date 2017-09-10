@@ -38,21 +38,42 @@ def index(request):
     ftype = Data.get('ftype')
     country = Data.get('country')
     year = Data.get('year')  # 如果为空返回的居然是字符串'None' 奇葩
-    print(year, type(year), year == 'None')
-    print(country, type(country))
+    # print(year, type(year), year == 'None')
+    # print(country, type(country))
     try:
+
+
         type_num = film_type_table.get(ftype)
         country_num = film_country_table.get(country)
-        print(ftype, country, year)
+
+
         if type_num:
             films1 = FILM.objects.filter(types=type_num)
         else:
             films1 = FILM.objects.all()
+
+
         if country_num:
             films2 = films1.filter(country=country_num)
         else:
-            films2 = films1
-        if year == 'None':
+            films2 = films1.all()
+
+
+
+
+
+
+
+
+
+
+
+
+
+        print('type'+ftype)
+        print('country'+country)
+        print('year' + year)
+        if year == 'None' or year=='year_all':
             films = films2
         elif year:
             # print(year is 'None')

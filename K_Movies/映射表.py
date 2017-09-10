@@ -13,7 +13,7 @@ film_type_table = {
     'crime': 11,
     'disaster': 33,
     'dance': 13,
-    'type_all': 21,
+    'type_all': 0,
 
 }
 
