@@ -160,11 +160,8 @@ def addFilm(request):
 
         try:
             newfilm.director.add(DIRECTOR.objects.filter(name=director)[0])
-            print('找到了一个导演')
         except:
             newfilm.director.create(name=director)
-            print('新建了一个导演')
-
         try:
             f_types = data['types'].split()
             for f_type in f_types:
@@ -175,7 +172,7 @@ def addFilm(request):
         except:
             f_type = '暂无'
             newfilm.types.add(TYPE.objects.filter(name=f_type))
-
+        print('添加了一部新电影')
         return HttpResponse('YES')
     else:
         return HttpResponse('FUCK OFF ')

@@ -10,12 +10,12 @@ class FILM(models.Model):
     '''
     电影
     '''
-    name = models.CharField('电影名称', max_length=200, null=True)
+    name = models.CharField('电影名称', max_length=200,unique=True, null=True)
     language = models.CharField('语言', max_length=200, null=True)
     IMDb_link = models.CharField('IMDB链接', max_length=200, null=True)
     intro = models.TextField('剧情介绍', null=True)
-    by_name = models.CharField('链接详情', max_length=500, null=True)
-    by_link = models.CharField('下载链接1', max_length=500, null=True)
+    by_name = models.CharField('链接详情', max_length=5000, null=True)
+    by_link = models.CharField('下载链接1', max_length=5000, null=True)
     pic_link = models.CharField('图片链接', max_length=500, null=True)
     country = models.ForeignKey('COUNTRY', verbose_name='国家', null=True)
     publish_year = models.ForeignKey('YEAR', null=True, verbose_name='上映年份')
