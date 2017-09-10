@@ -3,7 +3,7 @@
 
 <br>
 
-![](https://github.com/huangke19/PureFilm/raw/master/intro_pics/首页.png)
+![](https://github.com/huangke19/PureFilm/raw/master/intro_pics/home.png)
 
 <br><br><br>
 
