@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>电影</title>
+    <title>PureFilm电影网</title>
     <link rel="stylesheet" href="{% static "css/film.css" %}">
     <script src="{% static 'js/jquery.min.js' %}"></script>
 </head>
@@ -16,9 +16,9 @@
 <div class="header">
     <div class="navbar">
         <div class="logo"><img src="{% static "pic/logo.jpeg" %}"></div>
-        <div class="nav"><a href="/"><p>首页</p></a></div>
-        <div class="nav"><a href="/film/1"><p>电影</p></a></div>
-        <div class="nav"><a href="/film/1"><p>电视剧</p></a></div>
+        <div class="nav"><a href="/"><h4>PureFilm</h4></a></div>
+        <div class="nav"><a href="/"><h4>首页</h4></a></div>
+{#        <div class="nav"><a href="/film/1"><p>电视剧</p></a></div>#}
     </div>
     <div class="search">
         <form method="post" action="{% url 'search' %}">

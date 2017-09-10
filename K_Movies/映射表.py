@@ -7,7 +7,7 @@ film_type_table = {
     'science': 3,
     'story': 8,
     'history': 16,
-    'sordsman': 31,
+    'swordsman': 31,
     'panic': 10,
     'suspense': 19,
     'crime': 11,

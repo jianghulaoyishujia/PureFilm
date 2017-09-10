@@ -58,9 +58,14 @@ html {
     width: 12%;
     height: 70px;
     padding-left: 4%;
-    padding-top: 5%;
+    padding-top: 4%;
+
     /*border: solid 1px;*/
     /*background-color: lightcoral;*/
+}
+.nav h4{
+    color: lightslategrey;
+    font-family: sans-serif;
 }
 
 .search {
