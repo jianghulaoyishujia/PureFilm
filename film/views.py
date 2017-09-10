@@ -38,34 +38,21 @@ def index(request):
     ftype = Data.get('ftype')
     country = Data.get('country')
     year = Data.get('year')  # 如果为空返回的居然是字符串'None' 奇葩
-    # print(year, type(year), year == 'None')
-    # print(country, type(country))
+
     try:
-
-
         type_num = film_type_table.get(ftype)
         country_num = film_country_table.get(country)
-
-
         if type_num:
             films1 = FILM.objects.filter(types=type_num)
         else:
             films1 = FILM.objects.all()
-
-
         if country_num:
             films2 = films1.filter(country=country_num)
         else:
             films2 = films1.all()
-
-
-        print('type'+ftype)
-        print('country'+country)
-        print('year' + year)
-        if year == 'None' or year=='year_all':
+        if year == 'None' or year == 'year_all':
             films = films2
         elif year:
-            # print(year is 'None')
             year_list1 = ['2017', '2016', '2015', '2014', '2013', '2012', '2011']
             year_list2 = ['100', '90', '80', '70']
             if year in year_list1:
@@ -77,16 +64,15 @@ def index(request):
             films = films3
         else:
             films = films2
-
     except Exception:
-        # films = FILM.objects.all().distinct()[obj.db_start:obj.db_end]
         films = FILM.objects.all()
+        print(films.all().count())
 
     current_page = request.GET.get("p", 1)
     current_page = int(current_page)
     total_count = films.all().count()
     obj = PageHelper(total_count, current_page, "/", 24, ftype, country, year)
-    v = (total_count // 20) - 2
+    v = (total_count // 24) if (total_count % 24 == 0) else (total_count // 24 + 1)
     pager = obj.page_str()
     films = films.distinct()[obj.db_start:obj.db_end]
     return render(request, 'index.html', locals())
@@ -127,7 +113,6 @@ def addFilm(request):
                 download_pic(pic_link, ('statics/fuck/%s' % pic_name))
         except:
             pic_name = '暂无'
-            pic_link = 'fuck/kwell.jpg'
 
         d_name, d_link = '', ''
         for x, y in zip(data['link_name'], data['download_link']):
