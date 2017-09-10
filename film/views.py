@@ -93,8 +93,8 @@ def film(request, id):
 
 @csrf_exempt
 def addFilm(request):
-    if not os.path.exists('fuck'):
-        os.mkdir('fuck')
+    if not os.path.exists('statics/fuck'):
+        os.mkdir('statics/fuck')
     if request.method == "POST":
         r = request.body
         data = json.loads(r.decode('utf-8'))
