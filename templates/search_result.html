@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+
+
+
+
+
+{% block content %}
+
+    {% for film in films %}
+<a href="/film/{{ film.id }}">
+<div>
+
+
+        <div class="movie-brief">
+            <div class="movie-image">
+                <img src="/static/{{ film.pic_link }}">
+
+            </div>
+            <div class="search-movie-info">
+                <h3>《{{ film.name }}》</h3><br>
+                {#                <p>语言：&nbsp; &nbsp;{{ film.language }}</p>#}
+
+                <p>国家：&nbsp; &nbsp;{{ film.country }}</p>
+                {#                <p>上映: &nbsp; &nbsp;&nbsp;{{ film.publish_year }}年</p>#}
+                <p>类型:
+                    &nbsp;&nbsp;
+                    {% for i in film.types.all %}
+                        <span>{{ i }}</span>
+                    {% endfor %}
+                </p>
+
+                <p>演员：
+
+                    {% for act in film.actor.all|slice:'6' %}
+                        <span class="search-actor-name">{{ act.name }}</span>
+                    {% endfor %}
+                </p>
+                <p id="intro"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{ film.intro }}
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+
+</div>
+
+{#<hr>#}
+</a>
+
+    {% endfor %}
+
+{% endblock %}
+
