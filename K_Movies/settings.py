@@ -76,24 +76,24 @@ WSGI_APPLICATION = 'K_Movies.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'NAME': 'film',
-        'PASSWORD':'123456',
-        'TEST': {
-            'NAME': 'mytestdatabase',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'root',
+#         'NAME': 'film',
+#         'PASSWORD':'123456',
+#         'TEST': {
+#             'NAME': 'mytestdatabase',
+#         },
+#     },
+# }
 
 
 # Password validation

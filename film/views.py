@@ -105,12 +105,7 @@ def addFilm(request):
         try:
             pic_link = data['pic_link']
             pic_name = pic_link.split('/')[-1][:-6]
-            try:
-                urlretrieve(pic_link, ('statics/fuck/%s' % pic_name))
-                print(pic_name)
-                sleep(3)
-            except:
-                download_pic(pic_link, ('statics/fuck/%s' % pic_name))
+            urlretrieve(pic_link, ('statics/fuck/%s' % pic_name))
         except:
             pic_name = '暂无'
 
