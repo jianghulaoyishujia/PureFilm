@@ -26,6 +26,7 @@ SECRET_KEY = 'doyr4kbn95!h^2-k!pq+b8gk+pp$krxl(xr1z+gyiwxfp+z0^s'
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.6.104',
+		 '192,168.6.100',
                  '127.0.0.1',
                  '47.94.99.91',
                  'kwell.online']
@@ -134,6 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = (
+    os.path.join(BASE_DIR, "mystatic")
+)
 
 STATIC_URL = '/static/'
 # PIC_URL = '/fuck/'
