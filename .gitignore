@@ -4,3 +4,16 @@
 #mystatic
 
 .pyc
+K_Movies/settings.py
+K_Movies/settings
+
+mystatic
+statics
+venv
+db.sqlite3
+
+film.ini
+test.py
+uwsgi_params
+测试.py
+笔记.txt
