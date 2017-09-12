@@ -89,9 +89,9 @@ WSGI_APPLICATION = 'K_Movies.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.mysql',
-       'USER': 'test',
+       'USER': 'root',
        'NAME': 'film',
-       'PASSWORD':'fuckyou',
+       'PASSWORD':'hkonelove',
        # 'HOST':'127.0.0.1',
        'TEST': {
            'NAME': 'mytestdatabase',
