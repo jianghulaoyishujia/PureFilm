@@ -66,7 +66,7 @@ def index(request):
             films = films2
     except Exception:
         films = FILM.objects.all()
-        print(films.all().count())
+        # print(films.all().count())
 
     current_page = request.GET.get("p", 1)
     current_page = int(current_page)
@@ -167,7 +167,7 @@ def addFilm(request):
         except:
             f_type = '暂无'
             newfilm.types.add(TYPE.objects.filter(name=f_type))
-        print('添加了一部新电影')
+        # print('添加了一部新电影')
         return HttpResponse('YES')
     else:
         return HttpResponse('FUCK OFF ')
@@ -175,7 +175,7 @@ def addFilm(request):
 
 def download_pic(pic_url, name):
     urlretrieve(pic_url, '%s.jpg' % name)
-    print('picutre downloaded')
+    # print('picutre downloaded')
 
 
 def search(request):
@@ -185,7 +185,7 @@ def search(request):
     # print('GET数据传输正确')
     # films = FILM.objects.filter(name__contains=key_word)
     films = FILM.objects.filter(Q(name__contains=key_word) | Q(actor__name__contains=key_word)).distinct()
-    print(films)
+    # print(films)
     return render(request, 'search_result.html', {"films": films})
 
 
