@@ -92,7 +92,7 @@ DATABASES = {
        'USER': 'test',
        'NAME': 'film',
        'PASSWORD':'test',
-       'HOST':'47.94.99.91',
+       'HOST':'127.0.0.1',
        'TEST': {
            'NAME': 'mytestdatabase',
        },
