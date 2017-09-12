@@ -11,7 +11,8 @@ mystatic
 statics
 venv
 db.sqlite3
-
+film.conf
+.idea
 film.ini
 test.py
 uwsgi_params
